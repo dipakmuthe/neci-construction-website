@@ -1,273 +1,161 @@
 /* ================= HERO ================= */
 
 .services-hero{
-
     background:
     linear-gradient(
         rgba(10,15,40,0.85),
         rgba(10,15,40,0.85)
     ),
     url('../images/hero/banner.jpg');
-
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
-
     min-height:50vh;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     text-align:center;
+    padding-left:16px;
+    padding-right:16px;
 }
 
 .services-hero h1{
-
-    font-size:70px;
-
-    font-weight:800;
-
     color:#ffffff;
-
     margin-bottom:20px;
+    font-size:clamp(1.75rem, 4.5vw + 1rem, 4.375rem);
+    font-weight:800;
+    line-height:1.15;
 }
 
 .services-hero p{
-
-    font-size:24px;
-
     color:#f5f5f5;
+    max-width:640px;
+    margin-left:auto;
+    margin-right:auto;
+    font-size:clamp(1rem, 2vw + 0.5rem, 1.5rem);
+    line-height:1.5;
+    padding:0 clamp(0.25rem, 2vw, 0.75rem);
 }
 
 /* ================= COMING SECTION ================= */
 
 .coming-section{
-
     background:#f5f7fb;
-
-    padding:120px 20px;
+    padding:clamp(3rem, 10vw, 7.5rem) var(--neci-container-x, 20px);
 }
 
-/* BOX */
-
 .coming-box{
-
     background:#ffffff;
-
     max-width:850px;
-
+    width:100%;
     margin:auto;
-
     text-align:center;
-
-    padding:70px 50px;
-
+    padding:clamp(2rem, 6vw, 4.375rem) clamp(1.25rem, 5vw, 3.125rem);
     border-radius:25px;
-
-    box-shadow:
-    0 15px 40px rgba(0,0,0,0.08);
-
+    box-shadow:0 15px 40px rgba(0,0,0,0.08);
     transition:0.4s;
 }
 
 .coming-box:hover{
-
     transform:translateY(-10px);
 }
 
-/* ICON */
-
 .icon-box{
-
-    width:120px;
-    height:120px;
-
-    margin:auto;
-
+    width:clamp(80px, 18vw, 120px);
+    height:clamp(80px, 18vw, 120px);
+    margin:0 auto 35px;
     border-radius:50%;
-
-    background:
-    linear-gradient(
-        135deg,
-        #1E1B6D,
-        #2f2aa8
-    );
-
+    background:linear-gradient(135deg, #1E1B6D, #2f2aa8);
     display:flex;
     align-items:center;
     justify-content:center;
-
-    margin-bottom:35px;
 }
 
 .icon-box i{
-
-    font-size:55px;
-
+    font-size:clamp(2rem, 6vw, 3.4375rem);
     color:#ffffff;
 }
 
-/* HEADING */
-
 .coming-box h2{
-
-    font-size:45px;
-
+    font-size:clamp(1.75rem, 4vw, 2.8125rem);
     color:#1E1B6D;
-
     font-weight:800;
-
     margin-bottom:25px;
 }
 
-/* PARAGRAPH */
-
 .coming-box p{
-
-    font-size:20px;
-
+    font-size:clamp(1rem, 2.5vw, 1.25rem);
     color:#555;
-
     line-height:1.9;
-
     margin-bottom:40px;
 }
-
-/* STATUS */
 
 .status-box{
-
     display:inline-flex;
-
     align-items:center;
-
     gap:12px;
-
     background:#eef2ff;
-
-    padding:15px 30px;
-
+    padding:12px 24px;
     border-radius:50px;
-
     color:#1E1B6D;
-
     font-weight:700;
-
     margin-bottom:40px;
+    flex-wrap:wrap;
+    justify-content:center;
+    max-width:100%;
 }
-
-/* DOT */
 
 .dot{
-
     width:14px;
     height:14px;
-
     background:#22c55e;
-
     border-radius:50%;
-
     animation:pulse 1.5s infinite;
+    flex-shrink:0;
 }
 
-/* BUTTON */
-
 .contact-btn{
-
+    display:inline-block;
     background:#F5B400;
-
     color:#000;
-
-    padding:15px 40px;
-
-    font-size:18px;
-
+    padding:14px clamp(24px, 5vw, 40px);
+    font-size:clamp(1rem, 2.5vw, 1.125rem);
     font-weight:700;
-
     border-radius:10px;
-
     transition:0.3s;
+    text-decoration:none;
 }
 
 .contact-btn:hover{
-
     background:#d89d00;
-
     transform:translateY(-3px);
+    color:#000;
 }
-
-/* FOOTER */
-
-footer{
-
-    background:#111827;
-
-    color:#ffffff;
-
-    text-align:center;
-
-    padding:20px;
-}
-
-/* ANIMATION */
 
 @keyframes pulse{
-
     0%{
         transform:scale(1);
         opacity:1;
     }
-
     50%{
         transform:scale(1.3);
         opacity:0.6;
     }
-
     100%{
         transform:scale(1);
         opacity:1;
     }
 }
 
-/* ================= MOBILE ================= */
+@media (max-width:767.98px){
 
-@media(max-width:768px){
-
-.services-hero h1{
-
-    font-size:42px;
+.coming-box:hover{
+    transform:none;
 }
 
-.services-hero p{
-
-    font-size:18px;
-}
-
-.coming-box{
-
-    padding:50px 25px;
-}
-
-.coming-box h2{
-
-    font-size:32px;
-}
-
-.coming-box p{
-
-    font-size:17px;
-}
-
-.icon-box{
-
-    width:90px;
-    height:90px;
-}
-
-.icon-box i{
-
-    font-size:40px;
+.contact-btn{
+    width:100%;
+    max-width:320px;
 }
 
 }

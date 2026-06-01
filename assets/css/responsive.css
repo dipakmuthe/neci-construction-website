@@ -1,0 +1,297 @@
+/* =============================================================================
+   NECI — Global responsive layer (load after style.css + page CSS)
+   Breakpoints: 320–575 phone | 576–767 large phone | 768–1024 tablet |
+                1025+ desktop | 1200+ large screens
+   ============================================================================= */
+
+:root{
+    --neci-container-x:clamp(0.875rem, 3vw, 1.5rem);
+    --neci-section-y:clamp(3rem, 8vw, 6.25rem);
+    --neci-hero-title:clamp(1.75rem, 4.5vw + 1rem, 4.375rem);
+    --neci-hero-subtitle:clamp(1rem, 2vw + 0.5rem, 1.375rem);
+    --neci-h2:clamp(1.5rem, 2.5vw + 1rem, 2.25rem);
+    --neci-body:clamp(0.9375rem, 1.5vw, 1.0625rem);
+}
+
+/* ----- Overflow: prevent horizontal scroll on all devices ----- */
+html{
+    max-width:100%;
+}
+
+body{
+    overflow-x:hidden;
+    min-height:100vh;
+}
+
+main,
+section,
+.site-footer,
+.hero,
+.about-hero,
+.services-hero,
+.contact-hero,
+.gallery-hero{
+    max-width:100%;
+}
+
+.container,
+.container-fluid{
+    padding-left:var(--neci-container-x);
+    padding-right:var(--neci-container-x);
+    max-width:100%;
+}
+
+/* Bootstrap columns: prevent flex children from forcing horizontal overflow */
+.row > [class*="col"]{
+    min-width:0;
+}
+
+/* ----- Shared page hero typography (inner pages) ----- */
+.about-hero h1,
+.services-hero h1,
+.contact-hero h1,
+.gallery-hero h1{
+    font-size:var(--neci-hero-title);
+    line-height:1.15;
+    word-break:break-word;
+    overflow-wrap:break-word;
+    hyphens:auto;
+}
+
+.about-hero p,
+.services-hero p,
+.contact-hero p,
+.gallery-hero p{
+    font-size:var(--neci-hero-subtitle);
+    line-height:1.5;
+    padding-left:clamp(0px, 2vw, 12px);
+    padding-right:clamp(0px, 2vw, 12px);
+}
+
+.section-title,
+h2.section-title{
+    font-size:var(--neci-h2);
+}
+
+/* ----- Home hero: centered content + button group ----- */
+.hero .container{
+    width:100%;
+    max-width:100%;
+}
+
+.hero h1,
+.hero .display-3{
+    font-size:var(--neci-hero-title) !important;
+    line-height:1.15;
+    word-break:break-word;
+    overflow-wrap:break-word;
+}
+
+.hero p,
+.hero .lead{
+    font-size:var(--neci-hero-subtitle);
+    line-height:1.55;
+    max-width:42rem;
+    margin-left:auto;
+    margin-right:auto;
+    padding:0 clamp(0.25rem, 2vw, 0.75rem);
+}
+
+.hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.75rem;
+    justify-content:center;
+    align-items:stretch;
+    width:100%;
+    max-width:28rem;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.hero-actions .btn{
+    flex:1 1 auto;
+    min-width:min(100%, 10rem);
+    margin:0 !important;
+}
+
+/* ----- Images & cards ----- */
+img,
+video,
+svg{
+    max-width:100%;
+    height:auto;
+}
+
+.card-img-top,
+.service-card img,
+.gallery-img,
+.about-img{
+    width:100%;
+    max-width:100%;
+}
+
+.service-card img{
+    height:clamp(180px, 32vw, 250px);
+    object-fit:cover;
+}
+
+.gallery-img{
+    height:clamp(180px, 38vw, 300px);
+}
+
+/* ----- Section spacing ----- */
+section.py-5,
+#about,
+.services-section,
+.contact-section{
+    padding-top:var(--neci-section-y) !important;
+    padding-bottom:var(--neci-section-y) !important;
+}
+
+/* ----- Navbar: mobile menu transition ----- */
+.navbar-collapse{
+    transition:opacity 0.25s ease, transform 0.25s ease;
+}
+
+.navbar-collapse.collapsing{
+    transition:height 0.3s ease, opacity 0.25s ease;
+}
+
+.navbar-toggler{
+    transition:box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.navbar-toggler:focus{
+    box-shadow:0 0 0 0.2rem rgba(245, 180, 0, 0.45);
+}
+
+/* Collapse panel styling — tablet & mobile only */
+@media (max-width:991.98px){
+
+.navbar-collapse{
+    background:#1E1B6D;
+    padding:15px;
+    border-radius:10px;
+    margin-top:10px;
+    max-height:calc(100vh - var(--neci-navbar-height) - 16px);
+    overflow-y:auto;
+}
+
+.navbar-nav{
+    text-align:center;
+}
+
+.nav-link{
+    margin-left:0 !important;
+    padding:0.65rem 0 !important;
+}
+
+}
+
+/* ----- Tablet (768px – 1024px) ----- */
+@media (min-width:768px) and (max-width:1024px){
+
+.footer-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:2rem;
+}
+
+.footer-brand{
+    grid-column:1 / -1;
+}
+
+.hero-actions{
+    max-width:36rem;
+}
+
+.hero-actions .btn{
+    flex:1 1 45%;
+}
+
+}
+
+/* ----- Mobile (max 767px) ----- */
+@media (max-width:767.98px){
+
+:root{
+    --neci-navbar-height:65px;
+}
+
+.footer-grid{
+    grid-template-columns:1fr;
+    gap:1.75rem;
+}
+
+.footer-brand{
+    grid-column:auto;
+}
+
+.hero{
+    min-height:100svh;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:calc(var(--neci-navbar-height) + 1.5rem) var(--neci-container-x) 3rem;
+}
+
+.hero-actions{
+    flex-direction:column;
+    max-width:100%;
+}
+
+.hero-actions .btn{
+    width:100%;
+    flex:1 1 100%;
+}
+
+#about .row{
+    text-align:center;
+}
+
+.contact-section .col-lg-6.text-white{
+    text-align:center;
+}
+
+.gallery-card:hover,
+.service-card:hover{
+    transform:none;
+}
+
+.gallery-img:hover{
+    transform:none;
+}
+
+}
+
+/* ----- Small phones (320px – 575px, e.g. iPhone SE) ----- */
+@media (max-width:575.98px){
+
+:root{
+    --neci-navbar-height:60px;
+}
+
+.navbar-brand img{
+    height:40px;
+}
+
+.footer-logo img{
+    width:min(160px, 70vw);
+}
+
+.client-box{
+    font-size:0.8125rem;
+    padding:0.75rem 0.5rem;
+}
+
+}
+
+/* ----- Large screens (1200px+) ----- */
+@media (min-width:1200px){
+
+.container{
+    max-width:1140px;
+}
+
+}

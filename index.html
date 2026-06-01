@@ -22,6 +22,7 @@
     <!-- Custom CSS -->
 
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 
 </head>
 
@@ -29,7 +30,7 @@
 
 <!-- ================= NAVBAR ================= -->
 
-<nav class="navbar navbar-expand-lg navbar-dark ">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
 
     <div class="container">
 
@@ -47,7 +48,10 @@
         <button class="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#navbarNav">
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
 
             <span class="navbar-toggler-icon"></span>
 
@@ -103,7 +107,7 @@
 
         <div class="container text-center text-white">
 
-            <h1 class="display-3 fw-bold">
+            <h1 class="fw-bold">
 
                 NECI Construction Engineering
 
@@ -116,10 +120,10 @@
 
             </p>
 
-            <div class="mt-4">
+            <div class="hero-actions mt-4">
 
                 <a href="services.html"
-                   class="btn btn-warning btn-lg me-3">
+                   class="btn btn-warning btn-lg">
 
                     Our Services
 
@@ -150,7 +154,7 @@
 
             <!-- IMAGE -->
 
-            <div class="col-lg-6 mb-4"
+            <div class="col-12 col-lg-6 mb-4"
                  data-aos="fade-right">
 
                 <img src="assets/images/about/about.jpg"
@@ -160,7 +164,7 @@
 
             <!-- TEXT -->
 
-            <div class="col-lg-6"
+            <div class="col-12 col-lg-6"
                  data-aos="fade-left">
 
                 <h2>
@@ -249,13 +253,14 @@
 
             <!-- CARD 1 -->
 
-            <div class="col-lg-4 col-md-6"
+            <div class="col-12 col-md-6 col-lg-4"
                  data-aos="zoom-in">
 
                 <div class="card service-card h-100">
 
                     <img src="assets/images/products/false-ceiling.jpg"
-                         class="card-img-top">
+                         class="card-img-top img-fluid"
+                         alt="False ceiling">
 
                     <div class="card-body">
 
@@ -280,13 +285,14 @@
 
             <!-- CARD 2 -->
 
-            <div class="col-lg-4 col-md-6"
+            <div class="col-12 col-md-6 col-lg-4"
                  data-aos="zoom-in">
 
                 <div class="card service-card h-100">
 
                     <img src="assets/images/products/wall-partition.jpg"
-                         class="card-img-top">
+                         class="card-img-top img-fluid"
+                         alt="">
 
                     <div class="card-body">
 
@@ -311,13 +317,14 @@
 
             <!-- CARD 3 -->
 
-            <div class="col-lg-4 col-md-6"
+            <div class="col-12 col-md-6 col-lg-4"
                  data-aos="zoom-in">
 
                 <div class="card service-card h-100">
 
                     <img src="assets/images/products/metal-ceiling.jpg"
-                         class="card-img-top">
+                         class="card-img-top img-fluid"
+                         alt="">
 
                     <div class="card-body">
 
@@ -342,13 +349,14 @@
 
             <!-- CARD 4 -->
 
-            <div class="col-lg-4 col-md-6"
+            <div class="col-12 col-md-6 col-lg-4"
                  data-aos="zoom-in">
 
                 <div class="card service-card h-100">
 
                     <img src="assets/images/products/air-louver.jpg"
-                         class="card-img-top">
+                         class="card-img-top img-fluid"
+                         alt="">
 
                     <div class="card-body">
 
@@ -373,13 +381,14 @@
 
             <!-- CARD 5 -->
 
-            <div class="col-lg-4 col-md-6"
+            <div class="col-12 col-md-6 col-lg-4"
                  data-aos="zoom-in">
 
                 <div class="card service-card h-100">
 
                     <img src="assets/images/products/acoustic-partition.jpg"
-                         class="card-img-top">
+                         class="card-img-top img-fluid"
+                         alt="">
 
                     <div class="card-body">
 
@@ -404,13 +413,14 @@
 
             <!-- CARD 6 -->
 
-            <div class="col-lg-4 col-md-6"
+            <div class="col-12 col-md-6 col-lg-4"
                  data-aos="zoom-in">
 
                 <div class="card service-card h-100">
 
                     <img src="assets/images/products/flooring.jpg"
-                         class="card-img-top">
+                         class="card-img-top img-fluid"
+                         alt="">
 
                     <div class="card-body">
 
@@ -457,24 +467,27 @@
 
         <div class="row g-4">
 
-            <div class="col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4">
 
                 <img src="assets/images/photo/g1.jpg"
-                     class="gallery-img">
+                     class="gallery-img img-fluid"
+                     alt="Project gallery 1">
 
             </div>
 
-            <div class="col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4">
 
                 <img src="assets/images/photo/g2.jpg"
-                     class="gallery-img">
+                     class="gallery-img img-fluid"
+                     alt="Project gallery 2">
 
             </div>
 
-            <div class="col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4">
 
                 <img src="assets/images/photo/g3.jpg"
-                     class="gallery-img">
+                     class="gallery-img img-fluid"
+                     alt="Project gallery 3">
 
             </div>
 
@@ -493,7 +506,7 @@
 
         <div class="row">
 
-            <div class="col-lg-6 text-white">
+            <div class="col-12 col-lg-6 text-white mb-4 mb-lg-0">
 
                 <h2 class="mb-4">
 
@@ -521,7 +534,7 @@
 
             </div>
 
-            <div class="col-lg-6">
+            <div class="col-12 col-lg-6">
 
                 <form class="contact-form">
 
