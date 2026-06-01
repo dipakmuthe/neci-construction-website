@@ -1,0 +1,80 @@
+/* ================= ABOUT HERO ================= */
+
+.about-hero{
+
+    background:
+    linear-gradient(
+        rgba(8, 12, 35, 0.88),
+        rgba(8, 12, 35, 0.88)
+    ),
+    url('../images/hero/banner.jpg');
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    height:60vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+}
+
+/* HERO CONTENT */
+
+.about-hero .container{
+    position:relative;
+    z-index:2;
+}
+
+/* HERO HEADING */
+
+.about-hero h1{
+    
+    font-size:72px;
+    font-weight:800;
+
+    color:#ffffff;
+    
+    letter-spacing:1px;
+
+    text-shadow:
+    0 5px 20px rgba(0,0,0,0.7);
+
+    margin-bottom:20px;
+}
+
+/* HERO SUBTITLE */
+
+.about-hero p{
+
+    font-size:24px;
+
+    color:#F5F5F5;
+
+    font-weight:400;
+
+    text-shadow:
+    0 3px 15px rgba(0,0,0,0.6);
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:768px){
+
+.about-hero{
+    height:50vh;
+    padding:20px;
+}
+
+.about-hero h1{
+    font-size:42px;
+}
+
+.about-hero p{
+    font-size:18px;
+}
+
+}
