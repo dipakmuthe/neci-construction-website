@@ -1,119 +1,95 @@
-/* ================= HERO ================= */
+/* =============================================================================
+   Photos page — extends shared gallery styles in style.css
+   ============================================================================= */
 
 .gallery-hero{
     background:
-    linear-gradient(
-        rgba(8,12,35,0.88),
-        rgba(8,12,35,0.88)
-    ),
-    url('../images/hero/banner.jpg');
+        linear-gradient(rgba(8, 12, 35, 0.88), rgba(8, 12, 35, 0.88)),
+        url('../images/hero/banner2.jpg');
     background-size:cover;
     background-position:center;
-    background-repeat:no-repeat;
-    min-height:clamp(280px, 50vh, 480px);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding-left:var(--neci-container-x, 16px);
-    padding-right:var(--neci-container-x, 16px);
 }
 
-.gallery-hero h1{
-    font-size:clamp(1.75rem, 4.5vw + 1rem, 4.375rem);
+.photos-gallery{
+    background:#f1f5f9;
+}
+
+.photos-gallery .section-title{
+    color:var(--neci-primary);
     font-weight:800;
-    color:#ffffff;
-    text-shadow:0 5px 20px rgba(0,0,0,0.7);
-    line-height:1.15;
+    margin-bottom:12px;
+    font-size:var(--neci-h2);
 }
 
-.gallery-hero p{
-    font-size:clamp(1rem, 2vw + 0.5rem, 1.5rem);
-    color:#f5f5f5;
-    margin-top:20px;
-}
-
-/* ================= SECTION ================= */
-
-.gallery-section{
-    background:#f8fafc;
-}
-
-.section-title{
-    color:#1E1B6D;
-    font-weight:700;
-    margin-bottom:15px;
-    font-size:clamp(1.5rem, 2.5vw + 1rem, 2.25rem);
-}
-
-.gallery-subtitle{
-    color:#666;
+.photos-gallery .gallery-subtitle{
+    color:var(--neci-muted);
     font-size:clamp(0.95rem, 2vw, 1.125rem);
+    max-width:640px;
+    margin:0 auto;
 }
 
-/* ================= GALLERY CARD ================= */
-
-.gallery-card{
-    position:relative;
-    overflow:hidden;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.10);
-    transition:transform 0.4s ease, box-shadow 0.4s ease;
-    height:clamp(220px, 38vw, 280px);
+/* ----- Filter bar ----- */
+.gallery-filters{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:clamp(1.5rem, 4vw, 2.5rem);
+    padding:0 4px;
 }
 
-.gallery-card img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:transform 0.5s ease;
-}
-
-.large-card{
-    height:clamp(280px, 50vw, 420px);
-}
-
-.large-card img{
-    height:100%;
-}
-
-.gallery-card:hover img{
-    transform:scale(1.08);
-}
-
-.gallery-card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 20px 40px rgba(30,27,109,0.25);
-}
-
-.gallery-overlay{
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:100%;
-    padding:clamp(12px, 3vw, 20px);
-    background:linear-gradient(transparent, rgba(0,0,0,0.92));
-    color:white;
-}
-
-.gallery-content h5{
-    font-size:clamp(1rem, 2.5vw, 1.25rem);
-    font-weight:700;
-    margin-bottom:8px;
-    color:#ffffff;
-}
-
-.gallery-content p{
-    margin:0;
-    color:#F5B400;
-    font-size:clamp(0.85rem, 2vw, 1.0625rem);
+.gallery-filter-btn{
+    border:2px solid rgba(30, 27, 109, 0.12);
+    background:#fff;
+    color:var(--neci-primary);
     font-weight:600;
+    font-size:0.875rem;
+    padding:10px 18px;
+    border-radius:999px;
+    cursor:pointer;
+    transition:background 0.3s ease, color 0.3s ease, border-color 0.3s ease,
+        transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ================= CTA ================= */
+.gallery-filter-btn:hover,
+.gallery-filter-btn.is-active{
+    background:var(--neci-primary);
+    border-color:var(--neci-primary);
+    color:#fff;
+    box-shadow:0 8px 20px rgba(30, 27, 109, 0.2);
+}
 
+.gallery-filter-btn.is-active{
+    transform:translateY(-2px);
+}
+
+/* ----- Grid items & filter animation ----- */
+.photos-gallery .gallery-item{
+    transition:opacity 0.35s ease, transform 0.35s ease;
+}
+
+.photos-gallery .gallery-item.is-hidden{
+    display:none;
+}
+
+.photos-gallery .gallery-grid.is-filtering .gallery-item:not(.is-hidden){
+    animation:galleryFilterIn 0.45s ease forwards;
+}
+
+@keyframes galleryFilterIn{
+    from{
+        opacity:0;
+        transform:translateY(12px) scale(0.98);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+/* ----- CTA ----- */
 .gallery-cta{
-    background:linear-gradient(135deg, #1E1B6D, #111827);
+    background:linear-gradient(135deg, var(--neci-primary), #111827);
     padding:clamp(3rem, 12vw, 7.5rem) var(--neci-container-x, 20px);
     text-align:center;
 }
@@ -121,8 +97,8 @@
 .gallery-cta h2{
     font-size:clamp(1.75rem, 4vw, 3rem);
     font-weight:800;
-    color:#ffffff;
-    text-shadow:0 4px 15px rgba(0,0,0,0.5);
+    color:#fff;
+    text-shadow:0 4px 15px rgba(0, 0, 0, 0.5);
     margin-bottom:20px;
     line-height:1.2;
 }
@@ -135,25 +111,51 @@
 
 .gallery-cta .btn{
     margin-top:1rem;
+    font-weight:700;
+    border-radius:999px;
+    padding:12px 28px;
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ================= MOBILE: GALLERY PAGE ================= */
+.gallery-cta .btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 28px rgba(245, 180, 0, 0.35);
+}
 
 @media (max-width:767.98px){
+    .gallery-filters{
+        justify-content:flex-start;
+        overflow-x:auto;
+        flex-wrap:nowrap;
+        padding-bottom:8px;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:none;
+    }
 
-.gallery-card,
-.large-card{
-    height:clamp(200px, 55vw, 260px);
+    .gallery-filters::-webkit-scrollbar{
+        display:none;
+    }
+
+    .gallery-filter-btn{
+        flex:0 0 auto;
+        white-space:nowrap;
+    }
+
+    .gallery-cta .btn{
+        width:100%;
+        max-width:320px;
+    }
 }
 
-.gallery-card:hover,
-.gallery-card:hover img{
-    transform:none;
+@media (hover:none){
+    .photos-gallery .gallery-card:hover,
+    .photos-gallery .gallery-card:hover img{
+        transform:none;
+    }
 }
 
-.gallery-cta .btn{
-    width:100%;
-    max-width:320px;
-}
-
+@media (prefers-reduced-motion: reduce){
+    .photos-gallery .gallery-grid.is-filtering .gallery-item:not(.is-hidden){
+        animation:none;
+    }
 }

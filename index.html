@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>NECI Construction Engineering</title>
-
+    <link rel="shortcut icon" href="assets/images/logo/neci_logo.jpg" type="image/png">
     <!-- Bootstrap -->
-
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet"
@@ -22,15 +23,15 @@
     <!-- Custom CSS -->
 
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
 
+   
 </head>
 
-<body>
+<body id="top">
 
 <!-- ================= NAVBAR ================= -->
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<nav class="navbar navbar-expand-lg custom-navbar sticky-top">
 
     <div class="container">
 
@@ -38,20 +39,16 @@
 
         <a class="navbar-brand" href="index.html">
 
-            <img src="assets/images/logo/neci_logo.jpg"
-                 alt="Company Logo">
+            <img src="assets/images/logo/neci_logo-1.png" alt="NECI Logo">
 
         </a>
 
-        <!-- MOBILE MENU -->
+        <!-- MOBILE TOGGLE -->
 
         <button class="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
+                data-bs-target="#navbarNav">
 
             <span class="navbar-toggler-icon"></span>
 
@@ -59,36 +56,57 @@
 
         <!-- MENU -->
 
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse"
+             id="navbarNav">
 
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
 
-                <li class="nav-item">
+                <li class="nav-item d-none d-lg-block">
                     <a class="nav-link active" href="index.html">Home</a>
                 </li>
 
+                <!-- SERVICES DROPDOWN -->
+
+               
+<li class="nav-item dropdown mega-dropdown">
+    <div class="nav-item-mega-wrap">
+        <a class="nav-link"
+           href="services.html" 
+           id="servicesDropdown">
+            Our Products
+        </a>
+        <button type="button"
+                class="mega-mobile-toggle d-lg-none"
+                aria-label="Toggle services menu"
+                aria-expanded="false">
+            <i class="bi bi-chevron-down"></i>
+        </button>
+    </div>
+
+
+
+                    <!-- MEGA MENU -->
+
+                    <div class="dropdown-menu mega-menu mega-menu--dynamic p-4"></div>
+
+                </li>
+
+                <!-- OTHER MENU -->
+
                 <li class="nav-item">
-                    <a class="nav-link" href="about.html">
-                        About
-                    </a>
+                    <a class="nav-link" href="about.html">About Us</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="services.html">
-                        Services
-                    </a>
+                    <a class="nav-link" href="photos.html">Videos</a>
+                </li>
+
+                <li class="nav-item d-lg-none">
+                    <a class="nav-link" href="photos.html">Photos</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="photos.html">
-                        Photos
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">
-                        Contact
-                    </a>
+                    <a class="nav-link" href="contact.html">Contact</a>
                 </li>
 
             </ul>
@@ -99,43 +117,47 @@
 
 </nav>
 
-<!-- ================= HERO SECTION ================= -->
 
+
+<!-- ================= MODERN HERO SECTION ================= -->
 <section class="hero">
 
-    <div class="overlay">
+    <video autoplay muted loop playsinline class="hero-video">
+        <source src="assets/video/Neci Final Comp.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
-        <div class="container text-center text-white">
+    <div class="hero-content">
 
-            <h1 class="fw-bold">
+        <div class="hero-tag">
+            Premium Interior & Construction Solutions
+        </div>
 
-                NECI Construction Engineering
+        <h1 data-aos="fade-up">
+            We Craft Environments <br> 
+            That Inspire 
+           
+        </h1>
 
-            </h1>
+        <p data-aos="fade-up" data-aos-delay="200">
+            False Ceiling | Wall Partitions | Metal Ceiling | Air Louvers
+        </p>
 
-            <p class="lead mt-4">
+        <div class="glass-stats">
 
-                False Ceiling | Wall Partitions |
-                Metal Ceiling | Air Louvers
+            <div class="glass-card">
+                <h2>12+</h2>
+                <p>Years Experience</p>
+            </div>
 
-            </p>
+            <div class="glass-card">
+                <h2>100+</h2>
+                <p>Projects Completed</p>
+            </div>
 
-            <div class="hero-actions mt-4">
-
-                <a href="services.html"
-                   class="btn btn-warning btn-lg">
-
-                    Our Services
-
-                </a>
-
-                <a href="contact.html"
-                   class="btn btn-outline-light btn-lg">
-
-                    Contact Us
-
-                </a>
-
+            <div class="glass-card">
+                <h2>100%</h2>
+                <p>Customer Satisfaction</p>
             </div>
 
         </div>
@@ -144,76 +166,219 @@
 
 </section>
 
-<!-- ================= ABOUT ================= -->
+<!-- ================= WHY CHOOSE US SECTION ================= -->
 
-<section id="about" class="py-5">
+<section class="why-choose-section">
 
     <div class="container">
 
-        <div class="row align-items-center">
+        <!-- SECTION TITLE -->
 
-            <!-- IMAGE -->
+        <div class="section-title text-center">
 
-            <div class="col-12 col-lg-6 mb-4"
-                 data-aos="fade-right">
+            <h2>WHY CHOOSE NECI CONSTRUCTION</h2>
 
-                <img src="assets/images/about/about.jpg"
-                     class="img-fluid about-img">
+            <div class="title-line"></div>
+
+            <p>
+                Premium false ceiling, wall partition & metal ceiling
+                solutions with trusted quality and professional service.
+            </p>
+
+        </div>
+
+        <!-- CARDS -->
+
+        <div class="choose-grid">
+
+            <!-- CARD 1 -->
+
+            <div class="choose-card">
+
+                <div class="choose-icon">
+                    <i class="fa-solid fa-calendar-check"></i>
+                </div>
+
+                <h3>12+ Years<br>Experience</h3>
+
+                <p>
+                    Trusted construction and ceiling solutions
+                    since 2012.
+                </p>
 
             </div>
 
-            <!-- TEXT -->
+            <!-- CARD 2 -->
 
-            <div class="col-12 col-lg-6"
-                 data-aos="fade-left">
+            <div class="choose-card">
 
-                <h2>
+                <div class="choose-icon">
+                    <i class="fa-solid fa-building"></i>
+                </div>
 
-                    About NECI Construction
-
-                </h2>
-
-                <p>
-
-                    Incorporated in the year 2012,
-                    NECI Construction Engineering provides
-                    premium quality false ceiling,
-                    wall partition, metal ceiling and
-                    roofing solutions.
-
-                </p>
+                <h3>Premium<br>Materials</h3>
 
                 <p>
-
-                    We deliver durable and modern
-                    construction solutions with
-                    superior quality standards.
-
+                    High quality metal ceiling, roofing
+                    and partition products.
                 </p>
 
-                <div class="row mt-4">
+            </div>
 
-                    <div class="col-6">
+            <!-- CARD 3 -->
 
-                        <h3 class="text-primary fw-bold">
-                            12+
-                        </h3>
+            <div class="choose-card">
 
-                        <p>
-                            Years Experience
-                        </p>
+                <div class="choose-icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+
+                <h3>Quality<br>Assured</h3>
+
+                <p>
+                    Every product is tested for durability,
+                    strength and finish quality.
+                </p>
+
+            </div>
+
+         
+
+
+            <!-- CARD 6 -->
+
+            <div class="choose-card">
+
+                <div class="choose-icon">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+
+                <h3>Expert<br>Guidance</h3>
+
+                <p>
+                    Professional consultation for modern
+                    interior and ceiling solutions.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= ABOUT SECTION ================= -->
+
+<section class="premium-about-section" id="about" aria-labelledby="home-about-heading">
+
+    <div class="premium-about-bg" aria-hidden="true"></div>
+
+    <div class="container">
+
+        <div class="row align-items-center g-4 g-lg-5">
+
+            <!-- LEFT IMAGE -->
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-duration="550">
+
+                <div class="premium-about-image">
+
+                    <img src="assets/images/about/about-1.jpeg" alt="About NECI Construction" loading="lazy">
+
+                    <div class="experience-badge">
+
+                        <h2>12+</h2>
+                        <p>Years Experience</p>
 
                     </div>
 
-                    <div class="col-6">
+                </div>
 
-                        <h3 class="text-primary fw-bold">
-                            100+
-                        </h3>
+            </div>
 
-                        <p>
-                            Projects Completed
-                        </p>
+            <!-- RIGHT CONTENT -->
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100" data-aos-duration="550">
+
+                <div class="premium-about-content">
+
+                    <span class="about-tag">
+                        ABOUT OUR COMPANY
+                    </span>
+
+                    <h2 id="home-about-heading">
+                        Premium Interior &
+                        Construction Solutions
+                    </h2>
+
+                    <p class="about-text">
+
+                        NECI Construction Engineering delivers
+                        premium false ceiling, wall partition,
+                        metal ceiling and air louver solutions
+                        with modern design and superior quality.
+
+                    </p>
+
+                    <p class="about-text">
+
+                        We provide innovative construction
+                        solutions with professional execution,
+                        durable materials and customer-focused
+                        service for commercial and industrial
+                        projects.
+
+                    </p>
+
+                    <!-- FEATURES -->
+
+                    <div class="about-features">
+
+                        <div class="feature-item">
+
+                            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                            <span>Premium Quality Materials</span>
+
+                        </div>
+
+                        <div class="feature-item">
+
+                            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                            <span>Modern Ceiling Solutions</span>
+
+                        </div>
+
+                        <div class="feature-item">
+
+                            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                            <span>Professional Team Support</span>
+
+                        </div>
+
+                        <div class="feature-item">
+
+                            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                            <span>Fast Project Delivery</span>
+
+                        </div>
+
+                    </div>
+
+                    <!-- BUTTONS -->
+
+                    <div class="about-buttons">
+
+                        <a href="services.html" class="about-btn-primary">
+
+                            Our Services
+
+                        </a>
+
+                        <a href="contact.html" class="about-btn-outline">
+
+                            Contact Us
+
+                        </a>
 
                     </div>
 
@@ -226,7 +391,6 @@
     </div>
 
 </section>
-
 <!-- ================= SERVICES ================= -->
 
 <section id="services" class="services-section py-5">
@@ -449,121 +613,123 @@
 
 </section>
 
+<!-- ================= SERVICES BUTTON ================= -->
+
+<div class="explore-btn-wrapper text-center">
+
+    <a href="services.html"
+       class="modern-explore-btn">
+
+        Explore More Services
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+    </a>
+
+</div>
+
 <!-- ================= GALLERY ================= -->
-
-<section id="gallery" class="py-5">
-
-    <div class="container">
-
-        <div class="text-center mb-5">
-
-            <h2>
-
-                Project Gallery
-
-            </h2>
-
-        </div>
-
-        <div class="row g-4">
-
-            <div class="col-12 col-md-6 col-lg-4">
-
-                <img src="assets/images/photo/g1.jpg"
-                     class="gallery-img img-fluid"
-                     alt="Project gallery 1">
-
-            </div>
-
-            <div class="col-12 col-md-6 col-lg-4">
-
-                <img src="assets/images/photo/g2.jpg"
-                     class="gallery-img img-fluid"
-                     alt="Project gallery 2">
-
-            </div>
-
-            <div class="col-12 col-md-6 col-lg-4">
-
-                <img src="assets/images/photo/g3.jpg"
-                     class="gallery-img img-fluid"
-                     alt="Project gallery 3">
-
-            </div>
-
-        </div>
-
+<section id="gallery" class="gallery-section">
+  <div class="container">
+    <div class="section-heading text-center mb-5">
+      <span class="title-line"></span>
+      <h2>Project Gallery</h2>
+      <p>A glimpse of our premium ceiling &amp; interior projects.</p>
     </div>
 
+    <div class="row g-4 gallery-grid">
+      <div class="col-12 col-sm-6 col-lg-4">
+        <a href="services.html#linear-false-ceiling" class="gallery-card">
+          <img src="assets/images/gallery/g5.jpg" alt="Linear False Ceiling" loading="lazy">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">Linear False Ceiling</h3>
+            <p class="gallery-price">₹ 120 <span>/ Square Feet</span></p>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-4">
+        <a href="services.html#metal-false-ceiling-panel" class="gallery-card">
+          <img src="assets/images/gallery/g2.jpg" alt="Metal False Ceiling" loading="lazy">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">Metal False Ceiling</h3>
+            <p class="gallery-price">₹ 45 <span>/ Square Feet</span></p>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-4">
+        <a href="services.html#gypsum-board-false-ceiling" class="gallery-card">
+          <img src="assets/images/gallery/g3.jpg" alt="Gypsum Board False Ceiling" loading="lazy">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">Gypsum Board False Ceiling</h3>
+            <p class="gallery-price">₹ 80 <span>/ Square Feet</span></p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- ================= CONTACT ================= -->
+<!-- ================= GALLERY BUTTON ================= -->
 
-<section id="contact"
-         class="contact-section py-5">
+<div class="explore-btn-wrapper text-center">
 
+    <a href="photos.html"
+       class="modern-explore-btn">
+
+        View Full Gallery
+
+        <i class="fa-solid fa-images"></i>
+
+    </a>
+
+</div>
+
+<!-- ================= INFORMATION SECTION (VIDEO) ================= -->
+
+<section class="info-video-section" aria-labelledby="info-section-heading">
     <div class="container">
-
-        <div class="row">
-
-            <div class="col-12 col-lg-6 text-white mb-4 mb-lg-0">
-
-                <h2 class="mb-4">
-
-                    Contact Us
-
-                </h2>
-
-                <p>
-
-                    Pune, Maharashtra
-
-                </p>
-
-                <p>
-
-                    Email: info@neci.com
-
-                </p>
-
-                <p>
-
-                    Phone: +91 XXXXX XXXXX
-
-                </p>
-
+        <div class="row align-items-center g-4 g-lg-5">
+            
+            <!-- CONTENT -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-duration="550">
+                <div class="info-text-content">
+                    <span class="info-section-label">Why NECI</span>
+                    <div class="title-line info-title-line"></div>
+                    <h2 class="info-section-heading" id="info-section-heading">Innovative Engineering & Precision</h2>
+                    <p class="info-lead">
+                        At NECI Construction Engineering, we don't just build; we engineer spaces for productivity and longevity.
+                    </p>
+                    <p class="info-body">
+                        Our process integrates modern technical standards with premium materials to deliver interiors that stand the test of time. Watch our process in action to see how we handle complex ceiling and partition projects with absolute precision.
+                    </p>
+                    
+                    <ul class="info-features list-unstyled">
+                        <li class="info-feature-item">
+                            <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                            <span>Advanced cable management integration</span>
+                        </li>
+                        <li class="info-feature-item">
+                            <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                            <span>Certified fire-rated partition systems</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="col-12 col-lg-6">
-
-                <form class="contact-form">
-
-                    <input type="text"
-                           class="form-control mb-3"
-                           placeholder="Your Name">
-
-                    <input type="email"
-                           class="form-control mb-3"
-                           placeholder="Your Email">
-
-                    <textarea rows="5"
-                              class="form-control mb-3"
-                              placeholder="Message"></textarea>
-
-                    <button class="btn btn-warning w-100">
-
-                        Send Message
-
-                    </button>
-
-                </form>
-
+            <!-- VIDEO PLAYER -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100" data-aos-duration="550">
+                <div class="info-video-wrapper">
+                    <video controls class="info-video-player" poster="assets/images/hero/banner.jpg" preload="metadata">
+                        <source src="assets/video/Neci Final Comp.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
 
         </div>
-
     </div>
-
 </section>
 
 <!-- ================= FOOTER ================= -->
@@ -572,13 +738,13 @@
 
     <div class="container">
 
-        <div class="footer-grid">
+        <div class="footer-grid" data-aos="fade-up">
 
             <div class="footer-brand">
 
                 <a href="index.html"
                    class="footer-logo">
-                    <img src="assets/images/logo/neci_logo.jpg"
+                    <img src="assets/images/logo/neci_logo-1.png"
                          alt="NECI Construction Engineering logo">
                 </a>
 
@@ -611,9 +777,12 @@
                        aria-label="LinkedIn">
                         <i class="bi bi-linkedin"></i>
                     </a>
-                    <a href="#"
-                       aria-label="YouTube">
-                        <i class="bi bi-youtube"></i>
+                    <a href="https://wa.me/91XXXXXXXXXX"
+                       class="footer-whatsapp"
+                       target="_blank"
+                       rel="noopener"
+                       aria-label="WhatsApp">
+                        <i class="bi bi-whatsapp"></i>
                     </a>
                 </div>
 
@@ -630,12 +799,7 @@
 
             <div class="footer-column">
                 <h3>Services</h3>
-                <a href="photos.html">False Ceiling</a>
-                <a href="photos.html">Metal Ceiling</a>
-                <a href="photos.html">Wall Partition</a>
-                <a href="photos.html">Acoustic Partition</a>
-                <a href="photos.html">Flooring</a>
-                <a href="photos.html">Air Louver</a>
+                <div id="footerServiceLinks"></div>
             </div>
 
             <div class="footer-column">
@@ -662,6 +826,12 @@
                 <a href="index.html">Privacy Policy</a>
             </div>
             <p>&copy; 2026 NECI Construction Engineering. All Rights Reserved.</p>
+            <a href="#top"
+               class="footer-top-link"
+               aria-label="Scroll to top">
+                <i class="bi bi-arrow-up"></i>
+                <span>Top</span>
+            </a>
         </div>
 
     </div>
@@ -669,7 +839,6 @@
 </footer>
 
 <!-- Bootstrap -->
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- AOS -->
@@ -678,6 +847,9 @@
 
 <!-- Custom JS -->
 
+<script src="assets/js/catalog-data.js"></script>
+<script src="assets/js/nav-mega-menu.js"></script>
+<script src="assets/js/footer-links.js"></script>
 <script src="assets/js/script.js"></script>
 
 </body>
