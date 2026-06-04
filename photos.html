@@ -28,12 +28,12 @@
     <!-- MAIN CSS -->
 
     <link rel="stylesheet"
-          href="assets/css/style.css">
+          href="assets/css/style.css?v=2">
 
     <!-- GALLERY CSS -->
 
     <link rel="stylesheet"
-          href="assets/css/photos.css">
+          href="assets/css/photos.css?v=2">
 
 
 </head>
@@ -44,7 +44,7 @@
 
 <nav class="navbar navbar-expand-lg custom-navbar sticky-top">
 
-    <div class="container">
+    <div class="container-fluid px-4 px-lg-5">
 
         <!-- LOGO -->
 
@@ -84,7 +84,7 @@
         <a class="nav-link"
            href="services.html" 
            id="servicesDropdown">
-            Our Products
+            Our Solutions
         </a>
         <button type="button"
                 class="mega-mobile-toggle d-lg-none"
@@ -104,11 +104,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="photos.html">Videos</a>
-                </li>
-
-                <li class="nav-item d-lg-none">
-                    <a class="nav-link" href="photos.html">Photos</a>
+                    <a class="nav-link active" href="photos.html">Gallery</a>
                 </li>
 
                 <li class="nav-item">
@@ -133,13 +129,13 @@
 
             <h1 data-aos="fade-up">
 
-                Project Gallery
+                NECI Project Gallery
 
             </h1>
 
             <p data-aos="fade-up">
 
-                Premium Ceiling & Construction Projects
+                Project images, product visuals and portfolio highlights
 
             </p>
 
@@ -158,183 +154,319 @@
         <div class="section-heading text-center mb-4 mb-lg-5">
             <span class="title-line"></span>
             <h2 class="section-title">Our Project Gallery</h2>
-            <p class="gallery-subtitle">Premium ceiling, partition &amp; construction solutions across Pune</p>
+            <p class="gallery-subtitle">Interior, exterior and flooring work for corporate, commercial and industrial environments</p>
         </div>
 
-        <div class="gallery-filters" role="tablist" aria-label="Filter projects">
-            <button type="button" class="gallery-filter-btn is-active" data-filter="all" aria-pressed="true">All Projects</button>
-            <button type="button" class="gallery-filter-btn" data-filter="false-ceiling" aria-pressed="false">False Ceiling</button>
-            <button type="button" class="gallery-filter-btn" data-filter="partitions" aria-pressed="false">Partitions</button>
-            <button type="button" class="gallery-filter-btn" data-filter="louvers" aria-pressed="false">Louvers</button>
-            <button type="button" class="gallery-filter-btn" data-filter="metal-ceiling" aria-pressed="false">Metal Ceiling</button>
+        <div class="gallery-filter-wrap">
+            <div class="gallery-filters" role="tablist" aria-label="Filter projects">
+                <button type="button" class="gallery-filter-btn is-active" data-filter="all" aria-pressed="true">All Projects</button>
+                <button type="button" class="gallery-filter-btn" data-filter="interior" aria-pressed="false">Interior</button>
+                <button type="button" class="gallery-filter-btn" data-filter="exterior" aria-pressed="false">Exterior</button>
+                <button type="button" class="gallery-filter-btn" data-filter="flooring" aria-pressed="false">Flooring</button>
+            </div>
         </div>
 
         <div class="row g-4 gallery-grid" id="photosGalleryGrid">
 
             <!-- 1 -->
 
-            <div class="col-12 col-sm-6 col-lg-3 gallery-item" data-category="false-ceiling">
-                <a href="services.html#aluminum-false-ceiling" class="gallery-card">
-                    <img src="assets/images/gallery/g1.jpg" alt="Aluminum False Ceiling" loading="lazy">
-                    <div class="gallery-overlay">
+            <div class="col-12 col-sm-6 col-md-4 gallery-item" data-category="interior">
+                <a href="services.html#baffle-false-ceiling" class="gallery-card">
+                    <div class="gallery-card-img-wrap">
+                        <img src="assets/images/gallery/g1.jpg" alt="Aluminum False Ceiling" loading="lazy">
+                        <span class="gallery-card-tag">Interior</span>
+                    </div>
+                    <div class="gallery-card-info">
                         <h3 class="gallery-title">Aluminum False Ceiling</h3>
-                        <p class="gallery-price">₹ 45 <span>/ Square Feet</span></p>
+                        <div class="gallery-card-footer">
+                            <span class="gallery-card-price">₹ 45 <span>/ Sq. Ft.</span></span>
+                            <span class="gallery-card-link">View Info <i class="bi bi-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </div>
 
             <!-- 2 -->
 
-            <div class="col-12 col-sm-6 col-lg-3 gallery-item" data-category="false-ceiling">
-                <a href="services.html#metal-false-ceiling-panel" class="gallery-card">
-                    <img src="assets/images/gallery/g2.jpg" alt="Metal False Ceiling" loading="lazy">
-                    <div class="gallery-overlay">
+            <div class="col-12 col-sm-6 col-md-4 gallery-item" data-category="interior">
+                <a href="services.html#metal-false-ceiling" class="gallery-card">
+                    <div class="gallery-card-img-wrap">
+                        <img src="assets/images/gallery/g2.jpg" alt="Metal False Ceiling" loading="lazy">
+                        <span class="gallery-card-tag">Interior</span>
+                    </div>
+                    <div class="gallery-card-info">
                         <h3 class="gallery-title">Metal False Ceiling</h3>
-                        <p class="gallery-price">₹ 45 <span>/ Square Feet</span></p>
+                        <div class="gallery-card-footer">
+                            <span class="gallery-card-price">₹ 45 <span>/ Sq. Ft.</span></span>
+                            <span class="gallery-card-link">View Info <i class="bi bi-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </div>
 
-            <div class="col-12 col-sm-6 col-lg-3 gallery-item" data-category="false-ceiling">
-                <a href="services.html#gypsum-board-false-ceiling" class="gallery-card">
-                    <img src="assets/images/gallery/g3.jpg" alt="Gypsum Board False Ceiling" loading="lazy">
-                    <div class="gallery-overlay">
+            <div class="col-12 col-sm-6 col-md-4 gallery-item" data-category="interior">
+                <a href="services.html#designer-false-ceiling" class="gallery-card">
+                    <div class="gallery-card-img-wrap">
+                        <img src="assets/images/gallery/g3.jpg" alt="Gypsum Board False Ceiling" loading="lazy">
+                        <span class="gallery-card-tag">Interior</span>
+                    </div>
+                    <div class="gallery-card-info">
                         <h3 class="gallery-title">Gypsum Board False Ceiling</h3>
-                        <p class="gallery-price">₹ 80 <span>/ Square Feet</span></p>
+                        <div class="gallery-card-footer">
+                            <span class="gallery-card-price">₹ 80 <span>/ Sq. Ft.</span></span>
+                            <span class="gallery-card-link">View Info <i class="bi bi-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </div>
 
-            <div class="col-12 col-sm-6 col-lg-3 gallery-item" data-category="false-ceiling">
-                <a href="services.html#gypsum-false-ceiling" class="gallery-card">
-                    <img src="assets/images/gallery/g4.jpg" alt="Gypsum False Ceiling" loading="lazy">
-                    <div class="gallery-overlay">
+            <div class="col-12 col-sm-6 col-md-4 gallery-item" data-category="interior">
+                <a href="services.html#designer-false-ceiling" class="gallery-card">
+                    <div class="gallery-card-img-wrap">
+                        <img src="assets/images/gallery/g4.jpg" alt="Gypsum False Ceiling" loading="lazy">
+                        <span class="gallery-card-tag">Interior</span>
+                    </div>
+                    <div class="gallery-card-info">
                         <h3 class="gallery-title">Gypsum False Ceiling</h3>
-                        <p class="gallery-price">₹ 80 <span>/ Square Feet</span></p>
+                        <div class="gallery-card-footer">
+                            <span class="gallery-card-price">₹ 80 <span>/ Sq. Ft.</span></span>
+                            <span class="gallery-card-link">View Info <i class="bi bi-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </div>
 
-            <div class="col-12 col-sm-6 col-lg-3 gallery-item" data-category="false-ceiling">
+            <div class="col-12 col-sm-6 col-md-4 gallery-item" data-category="interior">
                 <a href="services.html#linear-false-ceiling" class="gallery-card">
-                    <img src="assets/images/gallery/g5.jpg" alt="Linear False Ceiling" loading="lazy">
-                    <div class="gallery-overlay">
+                    <div class="gallery-card-img-wrap">
+                        <img src="assets/images/gallery/g5.jpg" alt="Linear False Ceiling" loading="lazy">
+                        <span class="gallery-card-tag">Interior</span>
+                    </div>
+                    <div class="gallery-card-info">
                         <h3 class="gallery-title">Linear False Ceiling</h3>
-                        <p class="gallery-price">₹ 120 <span>/ Square Feet</span></p>
+                        <div class="gallery-card-footer">
+                            <span class="gallery-card-price">₹ 120 <span>/ Sq. Ft.</span></span>
+                            <span class="gallery-card-link">View Info <i class="bi bi-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </div>
 
-            <div class="col-12 col-sm-6 col-lg-3 gallery-item" data-category="partitions">
-                <a href="services.html#glass-wall-partitions" class="gallery-card">
-                    <img src="assets/images/gallery/g6.jpg" alt="Glass Wall Partitions" loading="lazy">
-                    <div class="gallery-overlay">
+            <div class="col-12 col-sm-6 col-md-4 gallery-item" data-category="interior">
+                <a href="services.html#gypsum-partition" class="gallery-card">
+                    <div class="gallery-card-img-wrap">
+                        <img src="assets/images/gallery/g6.jpg" alt="Glass Wall Partitions" loading="lazy">
+                        <span class="gallery-card-tag">Interior</span>
+                    </div>
+                    <div class="gallery-card-info">
                         <h3 class="gallery-title">Glass Wall Partitions</h3>
-                        <p class="gallery-price">₹ 400 <span>/ Square Feet</span></p>
+                        <div class="gallery-card-footer">
+                            <span class="gallery-card-price">₹ 400 <span>/ Sq. Ft.</span></span>
+                            <span class="gallery-card-link">View Info <i class="bi bi-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </div>
 
-            <div class="col-12 col-sm-6 col-lg-3 gallery-item" data-category="partitions">
-                <a href="services.html#gypsum-wall-partitions" class="gallery-card">
-                    <img src="assets/images/gallery/g7.jpg" alt="Gypsum Wall Partitions" loading="lazy">
-                    <div class="gallery-overlay">
+            <div class="col-12 col-sm-6 col-md-4 gallery-item" data-category="interior">
+                <a href="services.html#gypsum-partition" class="gallery-card">
+                    <div class="gallery-card-img-wrap">
+                        <img src="assets/images/gallery/g7.jpg" alt="Gypsum Wall Partitions" loading="lazy">
+                        <span class="gallery-card-tag">Interior</span>
+                    </div>
+                    <div class="gallery-card-info">
                         <h3 class="gallery-title">Gypsum Wall Partitions</h3>
-                        <p class="gallery-price">₹ 90 <span>/ Square Feet</span></p>
+                        <div class="gallery-card-footer">
+                            <span class="gallery-card-price">₹ 90 <span>/ Sq. Ft.</span></span>
+                            <span class="gallery-card-link">View Info <i class="bi bi-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </div>
 
-            <div class="col-12 col-sm-6 col-lg-3 gallery-item" data-category="partitions">
+            <div class="col-12 col-sm-6 col-md-4 gallery-item" data-category="interior">
                 <a href="services.html#fire-rated-partition" class="gallery-card">
-                    <img src="assets/images/gallery/g8.jpg" alt="Fire Rated Partition" loading="lazy">
-                    <div class="gallery-overlay">
+                    <div class="gallery-card-img-wrap">
+                        <img src="assets/images/gallery/g8.jpg" alt="Fire Rated Partition" loading="lazy">
+                        <span class="gallery-card-tag">Interior</span>
+                    </div>
+                    <div class="gallery-card-info">
                         <h3 class="gallery-title">Fire Rated Partition</h3>
-                        <p class="gallery-price">₹ 240 <span>/ Square Feet</span></p>
+                        <div class="gallery-card-footer">
+                            <span class="gallery-card-price">₹ 240 <span>/ Sq. Ft.</span></span>
+                            <span class="gallery-card-link">View Info <i class="bi bi-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </div>
 
-            <div class="col-12 col-sm-6 col-lg-3 gallery-item" data-category="partitions">
-                <a href="services.html#wall-partitions-general" class="gallery-card">
-                    <img src="assets/images/gallery/g9.jpg" alt="Wall Partitions" loading="lazy">
-                    <div class="gallery-overlay">
+            <div class="col-12 col-sm-6 col-md-4 gallery-item" data-category="interior">
+                <a href="services.html#gypsum-partition" class="gallery-card">
+                    <div class="gallery-card-img-wrap">
+                        <img src="assets/images/gallery/g9.jpg" alt="Wall Partitions" loading="lazy">
+                        <span class="gallery-card-tag">Interior</span>
+                    </div>
+                    <div class="gallery-card-info">
                         <h3 class="gallery-title">Wall Partitions</h3>
-                        <p class="gallery-price">₹ 100 <span>/ Square Feet</span></p>
+                        <div class="gallery-card-footer">
+                            <span class="gallery-card-price">₹ 100 <span>/ Sq. Ft.</span></span>
+                            <span class="gallery-card-link">View Info <i class="bi bi-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </div>
 
-            <div class="col-12 col-sm-6 col-lg-3 gallery-item" data-category="partitions">
-                <a href="services.html#glass-partition" class="gallery-card">
-                    <img src="assets/images/gallery/g10.jpg" alt="Glass Partition" loading="lazy">
-                    <div class="gallery-overlay">
+            <div class="col-12 col-sm-6 col-md-4 gallery-item" data-category="interior">
+                <a href="services.html#gypsum-partition" class="gallery-card">
+                    <div class="gallery-card-img-wrap">
+                        <img src="assets/images/gallery/g10.jpg" alt="Glass Partition" loading="lazy">
+                        <span class="gallery-card-tag">Interior</span>
+                    </div>
+                    <div class="gallery-card-info">
                         <h3 class="gallery-title">Glass Partition</h3>
-                        <p class="gallery-price">₹ 450 <span>/ Square Feet</span></p>
+                        <div class="gallery-card-footer">
+                            <span class="gallery-card-price">₹ 450 <span>/ Sq. Ft.</span></span>
+                            <span class="gallery-card-link">View Info <i class="bi bi-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </div>
 
-            <div class="col-12 col-sm-6 col-lg-3 gallery-item" data-category="louvers">
-                <a href="services.html#hunter-douglas-metal-louvers" class="gallery-card">
-                    <img src="assets/images/gallery/g11.jpg" alt="Hunter Douglas Metal Louvers" loading="lazy">
-                    <div class="gallery-overlay">
+            <div class="col-12 col-sm-6 col-md-4 gallery-item" data-category="exterior">
+                <a href="services.html#louvers" class="gallery-card">
+                    <div class="gallery-card-img-wrap">
+                        <img src="assets/images/gallery/g11.jpg" alt="Hunter Douglas Metal Louvers" loading="lazy">
+                        <span class="gallery-card-tag">Exterior</span>
+                    </div>
+                    <div class="gallery-card-info">
                         <h3 class="gallery-title">Hunter Douglas Metal Louvers</h3>
-                        <p class="gallery-price">₹ 180 <span>/ Square Feet</span></p>
+                        <div class="gallery-card-footer">
+                            <span class="gallery-card-price">₹ 180 <span>/ Sq. Ft.</span></span>
+                            <span class="gallery-card-link">View Info <i class="bi bi-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </div>
 
-            <div class="col-12 col-sm-6 col-lg-3 gallery-item" data-category="louvers">
-                <a href="services.html#metal-sun-louvers" class="gallery-card">
-                    <img src="assets/images/gallery/g12.jpg" alt="Metal Sun Louvers" loading="lazy">
-                    <div class="gallery-overlay">
+            <div class="col-12 col-sm-6 col-md-4 gallery-item" data-category="exterior">
+                <a href="services.html#louvers" class="gallery-card">
+                    <div class="gallery-card-img-wrap">
+                        <img src="assets/images/gallery/g12.jpg" alt="Metal Sun Louvers" loading="lazy">
+                        <span class="gallery-card-tag">Exterior</span>
+                    </div>
+                    <div class="gallery-card-info">
                         <h3 class="gallery-title">Metal Sun Louvers</h3>
-                        <p class="gallery-price">₹ 110 <span>/ Square Feet</span></p>
+                        <div class="gallery-card-footer">
+                            <span class="gallery-card-price">₹ 110 <span>/ Sq. Ft.</span></span>
+                            <span class="gallery-card-link">View Info <i class="bi bi-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </div>
 
-            <div class="col-12 col-sm-6 col-lg-3 gallery-item" data-category="false-ceiling">
-                <a href="services.html#aluminum-false-ceiling" class="gallery-card">
-                    <img src="assets/images/gallery/g13.jpg" alt="Aluminum Ceiling" loading="lazy">
-                    <div class="gallery-overlay">
+            <div class="col-12 col-sm-6 col-md-4 gallery-item" data-category="interior">
+                <a href="services.html#baffle-false-ceiling" class="gallery-card">
+                    <div class="gallery-card-img-wrap">
+                        <img src="assets/images/gallery/g13.jpg" alt="Aluminum Ceiling" loading="lazy">
+                        <span class="gallery-card-tag">Interior</span>
+                    </div>
+                    <div class="gallery-card-info">
                         <h3 class="gallery-title">Aluminum Ceiling</h3>
-                        <p class="gallery-price">₹ 45 <span>/ Square Feet</span></p>
+                        <div class="gallery-card-footer">
+                            <span class="gallery-card-price">₹ 45 <span>/ Sq. Ft.</span></span>
+                            <span class="gallery-card-link">View Info <i class="bi bi-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </div>
 
-            <div class="col-12 col-sm-6 col-lg-3 gallery-item" data-category="metal-ceiling">
-                <a href="services.html#metal-false-ceiling-panel" class="gallery-card">
-                    <img src="assets/images/gallery/g14.jpg" alt="Metal False Ceiling" loading="lazy">
-                    <div class="gallery-overlay">
+            <div class="col-12 col-sm-6 col-md-4 gallery-item" data-category="interior">
+                <a href="services.html#metal-false-ceiling" class="gallery-card">
+                    <div class="gallery-card-img-wrap">
+                        <img src="assets/images/gallery/g14.jpg" alt="Metal False Ceiling" loading="lazy">
+                        <span class="gallery-card-tag">Interior</span>
+                    </div>
+                    <div class="gallery-card-info">
                         <h3 class="gallery-title">Metal False Ceiling</h3>
-                        <p class="gallery-price">₹ 40 <span>/ Square Feet</span></p>
+                        <div class="gallery-card-footer">
+                            <span class="gallery-card-price">₹ 40 <span>/ Sq. Ft.</span></span>
+                            <span class="gallery-card-link">View Info <i class="bi bi-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </div>
 
-            <div class="col-12 col-sm-6 col-lg-3 gallery-item" data-category="metal-ceiling">
-                <a href="services.html#mineral-fiber-ceiling-tiles" class="gallery-card">
-                    <img src="assets/images/gallery/g15.jpg" alt="Mineral Fiber Ceiling Tiles" loading="lazy">
-                    <div class="gallery-overlay">
+            <div class="col-12 col-sm-6 col-md-4 gallery-item" data-category="interior">
+                <a href="services.html#modular-grid-false-ceiling" class="gallery-card">
+                    <div class="gallery-card-img-wrap">
+                        <img src="assets/images/gallery/g15.jpg" alt="Mineral Fiber Ceiling Tiles" loading="lazy">
+                        <span class="gallery-card-tag">Interior</span>
+                    </div>
+                    <div class="gallery-card-info">
                         <h3 class="gallery-title">Mineral Fiber Ceiling Tiles</h3>
-                        <p class="gallery-price">₹ 34 <span>/ Square Feet</span></p>
+                        <div class="gallery-card-footer">
+                            <span class="gallery-card-price">₹ 34 <span>/ Sq. Ft.</span></span>
+                            <span class="gallery-card-link">View Info <i class="bi bi-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </div>
 
-            <div class="col-12 col-sm-6 col-lg-3 gallery-item" data-category="louvers">
-                <a href="services.html#aluminum-air-louvers" class="gallery-card">
-                    <img src="assets/images/gallery/g16.jpg" alt="Aluminum Air Louver" loading="lazy">
-                    <div class="gallery-overlay">
+            <div class="col-12 col-sm-6 col-md-4 gallery-item" data-category="exterior">
+                <a href="services.html#aluminium-louvers" class="gallery-card">
+                    <div class="gallery-card-img-wrap">
+                        <img src="assets/images/gallery/g16.jpg" alt="Aluminum Air Louver" loading="lazy">
+                        <span class="gallery-card-tag">Exterior</span>
+                    </div>
+                    <div class="gallery-card-info">
                         <h3 class="gallery-title">Aluminum / G.I. Air Louver</h3>
-                        <p class="gallery-price">₹ 150 <span>/ Square Feet</span></p>
+                        <div class="gallery-card-footer">
+                            <span class="gallery-card-price">₹ 150 <span>/ Sq. Ft.</span></span>
+                            <span class="gallery-card-link">View Info <i class="bi bi-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </div>
 
+            <div class="col-12 col-sm-6 col-md-4 gallery-item" data-category="flooring">
+                <a href="services.html#false-flooring" class="gallery-card">
+                    <div class="gallery-card-img-wrap">
+                        <img src="assets/images/products/flooring.jpg" alt="False Flooring" loading="lazy">
+                        <span class="gallery-card-tag">Flooring</span>
+                    </div>
+                    <div class="gallery-card-info">
+                        <h3 class="gallery-title">False Flooring</h3>
+                        <div class="gallery-card-footer">
+                            <span class="gallery-card-price">Raised access floor</span>
+                            <span class="gallery-card-link">View Info <i class="bi bi-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 gallery-item" data-category="flooring">
+                <a href="services.html#epoxy-flooring" class="gallery-card">
+                    <div class="gallery-card-img-wrap">
+                        <img src="assets/images/photo/g2.jpg" alt="Epoxy Flooring" loading="lazy">
+                        <span class="gallery-card-tag">Flooring</span>
+                    </div>
+                    <div class="gallery-card-info">
+                        <h3 class="gallery-title">Epoxy Flooring</h3>
+                        <div class="gallery-card-footer">
+                            <span class="gallery-card-price">Industrial finish</span>
+                            <span class="gallery-card-link">View Info <i class="bi bi-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-5 d-none" id="galleryLoadMoreWrap">
+            <button type="button" class="gallery-show-more-btn" id="galleryShowMoreBtn">
+                Show More <i class="bi bi-chevron-down"></i>
+            </button>
         </div>
 
     </div>
@@ -431,7 +563,7 @@
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="services.html">Services</a>
-                <a href="photos.html">Photos</a>
+                <a href="photos.html">Gallery</a>
                 <a href="contact.html">Contact</a>
             </div>
             <div class="footer-column">
@@ -461,12 +593,7 @@
                 <a href="index.html">Privacy Policy</a>
             </div>
             <p>&copy; 2026 NECI Construction Engineering. All Rights Reserved.</p>
-            <a href="#top"
-               class="footer-top-link"
-               aria-label="Scroll to top">
-                <i class="bi bi-arrow-up"></i>
-                <span>Top</span>
-            </a>
+           
         </div>
 
     </div>
@@ -485,7 +612,7 @@
 <script src="assets/js/nav-mega-menu.js"></script>
 <script src="assets/js/footer-links.js"></script>
 <script src="assets/js/script.js"></script>
-<script src="assets/js/photos.js"></script>
+<script src="assets/js/photos.js?v=2"></script>
 
 </body>
 </html>

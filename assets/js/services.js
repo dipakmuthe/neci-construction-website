@@ -116,7 +116,7 @@
         if (!text || text.length <= max) {
             return text || "";
         }
-        return text.slice(0, max).trim() + "…";
+        return text.slice(0, max).trim() + "ÔÇª";
     }
 
     function productCountLabel(count) {
@@ -221,7 +221,7 @@
         if (viewMode === "detail" && activeProduct) {
             catalogTitle.textContent = activeProduct.name;
             catalogSubtitle.textContent = activeCategory
-                ? activeCategory.name + " · " + truncate(activeProduct.description, 140)
+                ? activeCategory.name + " ┬À " + truncate(activeProduct.description, 140)
                 : truncate(activeProduct.description, 140);
             return;
         }
@@ -229,9 +229,9 @@
         if (listScope === "all") {
             catalogTitle.textContent = "All Products & Services";
             catalogSubtitle.textContent =
-                "Browse our complete catalog of " +
+                "Comprehensive range of professional " +
                 getAllProductsFlat().length +
-                " solutions. Filter by category from the sidebar or use Show More to load additional items.";
+                " architectural products. Use the catalog sidebar to filter by specific service types.";
             return;
         }
 
@@ -435,7 +435,7 @@
             escapeHtml(product.id) +
             '" data-category-id="' +
             escapeHtml(category.id) +
-            '" data-tilt tabindex="0">' +
+            '" tabindex="0">' +
             '<div class="catalog-product-media">' +
             '<span class="catalog-product-badge">' +
             escapeHtml(category.name) +
@@ -489,7 +489,6 @@
                 }
             });
 
-            initTilt(card);
         });
     }
 
@@ -553,14 +552,14 @@
             '<div class="catalog-accordion-item catalog-all-item' +
             (allActive ? " is-active" : "") +
             '">' +
-            '<button type="button" class="catalog-accordion-trigger catalog-all-trigger" data-scope="all">' +
+            '<button type="button" class="catalog-category-btn catalog-all-trigger" data-scope="all">' +
             '<span class="catalog-accordion-label">' +
             "<strong>All Products & Services</strong>" +
             "<small>" +
             getAllProductsFlat().length +
             " products available</small>" +
             "</span>" +
-            '<i class="bi bi-grid-fill catalog-accordion-icon" aria-hidden="true"></i>' +
+            '<i class="bi bi-grid-fill catalog-accordion-icon" aria-hidden="true" style="margin-left: auto; margin-right: 16px;"></i>' +
             "</button></div>";
 
         var categoryItems = serviceCatalog
@@ -572,15 +571,14 @@
                 var isExpanded = category.id === expandedCategoryId;
                 var countLabel = productCountLabel(category.products.length);
 
-                var visibleSubs = category.products.slice(0, SIDEBAR_VISIBLE_SUBS);
-                var hiddenSubCount = category.products.length - visibleSubs.length;
-
-                var subLinks = visibleSubs
-                    .map(function (product) {
+                var subLinks = category.products
+                    .map(function (product, pIndex) {
                         var selected =
                             isActive && activeProduct && product.id === activeProduct.id
                                 ? " is-selected"
                                 : "";
+                        var isLast = pIndex === category.products.length - 1;
+                        var prefix = isLast ? "└─ " : "├─ ";
                         return (
                             '<a href="#' +
                             escapeHtml(product.id) +
@@ -591,22 +589,12 @@
                             '" data-product-id="' +
                             escapeHtml(product.id) +
                             '">' +
-                            escapeHtml(product.name) +
+                            '<span class="catalog-sub-prefix">' + prefix + '</span>' +
+                            '<span class="catalog-sub-name">' + escapeHtml(product.name) + '</span>' +
                             "</a>"
                         );
                     })
                     .join("");
-
-                if (hiddenSubCount > 0) {
-                    subLinks +=
-                        '<a href="#' +
-                        escapeHtml(category.id) +
-                        '" class="catalog-sub-link catalog-sub-more" data-category-id="' +
-                        escapeHtml(category.id) +
-                        '">+ ' +
-                        hiddenSubCount +
-                        " more products</a>";
-                }
 
                 return (
                     '<div class="catalog-accordion-item' +
@@ -615,9 +603,8 @@
                     '" data-category-id="' +
                     escapeHtml(category.id) +
                     '">' +
-                    '<button type="button" class="catalog-accordion-trigger" aria-expanded="' +
-                    isExpanded +
-                    '" data-category-id="' +
+                    '<div class="catalog-accordion-header">' +
+                    '<button type="button" class="catalog-category-btn" data-category-id="' +
                     escapeHtml(category.id) +
                     '">' +
                     '<span class="catalog-accordion-label">' +
@@ -628,8 +615,15 @@
                     countLabel +
                     "</small>" +
                     "</span>" +
+                    '</button>' +
+                    '<button type="button" class="catalog-arrow-toggle" aria-expanded="' +
+                    isExpanded +
+                    '" aria-label="Toggle products" data-category-id="' +
+                    escapeHtml(category.id) +
+                    '">' +
                     '<i class="bi bi-chevron-down catalog-accordion-icon" aria-hidden="true"></i>' +
-                    "</button>" +
+                    '</button>' +
+                    '</div>' +
                     '<div class="catalog-accordion-panel">' +
                     '<div class="catalog-accordion-panel-inner">' +
                     '<div class="catalog-sub-list">' +
@@ -651,9 +645,9 @@
             });
         }
 
-        categoryList.querySelectorAll(".catalog-accordion-trigger:not(.catalog-all-trigger)").forEach(function (trigger) {
-            trigger.addEventListener("click", function () {
-                var categoryId = trigger.getAttribute("data-category-id");
+        categoryList.querySelectorAll(".catalog-category-btn:not(.catalog-all-trigger)").forEach(function (btn) {
+            btn.addEventListener("click", function () {
+                var categoryId = btn.getAttribute("data-category-id");
                 var category = serviceCatalog.find(function (c) {
                     return c.id === categoryId;
                 });
@@ -662,20 +656,24 @@
                     return;
                 }
 
-                if (
-                    expandedCategoryId === categoryId &&
-                    listScope === "category" &&
-                    activeCategory &&
-                    activeCategory.id === categoryId &&
-                    viewMode === "products"
-                ) {
-                    expandedCategoryId = "";
-                    renderCategories();
-                    return;
-                }
-
                 expandedCategoryId = categoryId;
                 selectCategory(category, category.products[0], true);
+            });
+        });
+
+        categoryList.querySelectorAll(".catalog-arrow-toggle").forEach(function (toggleBtn) {
+            toggleBtn.addEventListener("click", function (event) {
+                event.stopPropagation();
+
+                var categoryId = toggleBtn.getAttribute("data-category-id");
+                
+                if (expandedCategoryId === categoryId) {
+                    expandedCategoryId = "";
+                } else {
+                    expandedCategoryId = categoryId;
+                }
+                
+                renderCategories();
             });
         });
 
@@ -694,11 +692,6 @@
                 }
 
                 expandedCategoryId = categoryId;
-
-                if (link.classList.contains("catalog-sub-more") || !productId) {
-                    selectCategory(category, category.products[0], true);
-                    return;
-                }
 
                 var product = findProductInCategory(category, productId);
                 if (product) {
@@ -858,33 +851,7 @@
             el.classList.add("is-visible");
         });
 
-        document.querySelectorAll(".catalog-header.reveal-on-scroll").forEach(function (el) {
-            observeReveal([el]);
-        });
-    }
-
-    function initTilt(card) {
-        if (prefersReducedMotion || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-            return;
-        }
-
-        var maxTilt = 5;
-
-        card.addEventListener("mousemove", function (event) {
-            var rect = card.getBoundingClientRect();
-            var x = (event.clientX - rect.left) / rect.width - 0.5;
-            var y = (event.clientY - rect.top) / rect.height - 0.5;
-            card.style.transform =
-                "translateY(-6px) rotateX(" +
-                y * -maxTilt +
-                "deg) rotateY(" +
-                x * maxTilt +
-                "deg)";
-        });
-
-        card.addEventListener("mouseleave", function () {
-            card.style.transform = "";
-        });
+        observeReveal(document.querySelectorAll(".catalog-sidebar.reveal-on-scroll, .catalog-header.reveal-on-scroll"));
     }
 
     window.addEventListener("hashchange", function () {

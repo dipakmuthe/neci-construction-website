@@ -28,12 +28,12 @@
     <!-- Main CSS -->
 
     <link rel="stylesheet"
-          href="assets/css/style.css">
+          href="assets/css/style.css?v=2">
 
     <!-- Contact CSS -->
 
     <link rel="stylesheet"
-          href="assets/css/contact.css">
+          href="assets/css/contact.css?v=2">
 
 
 </head>
@@ -43,7 +43,7 @@
 
 <nav class="navbar navbar-expand-lg custom-navbar sticky-top">
 
-    <div class="container">
+    <div class="container-fluid px-4 px-lg-5">
 
         <!-- LOGO -->
 
@@ -83,7 +83,7 @@
         <a class="nav-link"
            href="services.html" 
            id="servicesDropdown">
-            Our Products
+            Our Solutions
         </a>
         <button type="button"
                 class="mega-mobile-toggle d-lg-none"
@@ -103,11 +103,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="photos.html">Videos</a>
-                </li>
-
-                <li class="nav-item d-lg-none">
-                    <a class="nav-link" href="photos.html">Photos</a>
+                    <a class="nav-link" href="photos.html">Gallery</a>
                 </li>
 
                 <li class="nav-item">
@@ -162,25 +158,20 @@
                  data-aos="fade-right">
 
                 <div class="contact-info">
+                    <!-- Dot pattern overlay styled in CSS -->
+                    <div class="contact-dot-pattern"></div>
 
-                    <h2 class="mb-4">
+                    <h2 class="mb-4">Get In Touch</h2>
 
-                        Get In Touch
-
-                    </h2>
-
-                    <p>
-
-                        Feel free to contact us for
-                        construction, ceiling and interior solutions.
-
+                    <p class="mb-4 text-white-50">
+                        Discuss your corporate, commercial, or industrial project supply and installation needs with our expert engineering team.
                     </p>
 
                     <!-- ADDRESS -->
 
                     <div class="info-box">
 
-                        <i class="bi bi-geo-alt-fill"></i>
+                        <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
 
                         <div>
 
@@ -198,7 +189,7 @@
 
                     <div class="info-box">
 
-                        <i class="bi bi-telephone-fill"></i>
+                        <i class="bi bi-telephone-fill" aria-hidden="true"></i>
 
                         <div>
 
@@ -216,7 +207,7 @@
 
                     <div class="info-box">
 
-                        <i class="bi bi-envelope-fill"></i>
+                        <i class="bi bi-envelope-fill" aria-hidden="true"></i>
 
                         <div>
 
@@ -234,7 +225,7 @@
 
                     <div class="info-box">
 
-                        <i class="bi bi-clock-fill"></i>
+                        <i class="bi bi-clock-fill" aria-hidden="true"></i>
 
                         <div>
 
@@ -259,54 +250,68 @@
 
                 <div class="contact-form-box">
 
-                    <h2 class="mb-4">
-
-                        Send Message
-
-                    </h2>
+                    <h2 class="mb-4">Send Project Inquiry</h2>
 
                     <form>
 
                         <div class="row">
 
                             <div class="col-12 col-md-6 mb-3">
-
-                                <input type="text"
-                                       class="form-control"
-                                       placeholder="Your Name">
-
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                    <input type="text"
+                                           class="form-control"
+                                           placeholder="Your Name"
+                                           required>
+                                </div>
                             </div>
 
                             <div class="col-12 col-md-6 mb-3">
-
-                                <input type="email"
-                                       class="form-control"
-                                       placeholder="Your Email">
-
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                    <input type="email"
+                                           class="form-control"
+                                           placeholder="Your Email"
+                                           required>
+                                </div>
                             </div>
 
                         </div>
 
                         <div class="mb-3">
-
-                            <input type="text"
-                                   class="form-control"
-                                   placeholder="Subject">
-
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-gear"></i></span>
+                                <select class="form-control" aria-label="Select service inquiry">
+                                    <option selected disabled>Choose Solution Vertical</option>
+                                    <option>False Ceiling Solutions</option>
+                                    <option>Wall Partition Solutions</option>
+                                    <option>Metal Sun Louvers</option>
+                                    <option>Flooring & Access Solutions</option>
+                                    <option>General Project Consultation</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div class="mb-3">
-
-                            <textarea rows="6"
-                                      class="form-control"
-                                      placeholder="Your Message"></textarea>
-
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-bookmark"></i></span>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="Subject">
+                            </div>
                         </div>
 
-                        <button class="btn btn-warning w-100">
+                        <div class="mb-3">
+                            <div class="input-group">
+                                <span class="input-group-text align-items-start pt-3"><i class="bi bi-chat-text"></i></span>
+                                <textarea rows="5"
+                                          class="form-control"
+                                          placeholder="Describe your project requirements..."></textarea>
+                            </div>
+                        </div>
 
-                            Send Message
-
+                        <button class="btn btn-warning w-100 contact-submit-btn" type="submit">
+                            Request Callback <i class="bi bi-arrow-right"></i>
                         </button>
 
                     </form>
@@ -319,6 +324,20 @@
 
     </div>
 
+</section>
+
+<!-- ================= CONTACT CTA ================= -->
+
+<section class="contact-cta-section">
+    <div class="container">
+        <div class="contact-cta-card">
+            <div>
+                <span>Need a site-ready solution?</span>
+                <h2>Discuss your interior, exterior or flooring requirement with NECI.</h2>
+            </div>
+            <a href="services.html" class="contact-cta-btn">View Solutions</a>
+        </div>
+    </div>
 </section>
 
 <!-- ================= GOOGLE MAP ================= -->
@@ -394,7 +413,7 @@ loading="lazy">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="services.html">Services</a>
-                <a href="photos.html">Photos</a>
+                <a href="photos.html">Gallery</a>
                 <a href="contact.html">Contact</a>
             </div>
             <div class="footer-column">
@@ -424,12 +443,7 @@ loading="lazy">
                 <a href="index.html">Privacy Policy</a>
             </div>
             <p>&copy; 2026 NECI Construction Engineering. All Rights Reserved.</p>
-            <a href="#top"
-               class="footer-top-link"
-               aria-label="Scroll to top">
-                <i class="bi bi-arrow-up"></i>
-                <span>Top</span>
-            </a>
+           
         </div>
 
     </div>
@@ -444,10 +458,10 @@ loading="lazy">
 
 <!-- JS -->
 
-<script src="assets/js/catalog-data.js"></script>
-<script src="assets/js/nav-mega-menu.js"></script>
-<script src="assets/js/footer-links.js"></script>
-<script src="assets/js/script.js"></script>
+<script src="assets/js/catalog-data.js?v=2"></script>
+<script src="assets/js/nav-mega-menu.js?v=2"></script>
+<script src="assets/js/footer-links.js?v=2"></script>
+<script src="assets/js/script.js?v=2"></script>
 
 </body>
 </html>

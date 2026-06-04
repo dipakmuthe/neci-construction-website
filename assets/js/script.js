@@ -6,6 +6,21 @@
 
     document.documentElement.classList.add('js');
 
+    /* ----- Asynchronous Hero Video Loading ----- */
+    window.addEventListener('load', function () {
+        var video = document.getElementById('heroVideo');
+        if (video) {
+            var source = video.querySelector('source');
+            if (source && source.dataset.src) {
+                source.src = source.dataset.src;
+                video.load();
+                video.addEventListener('loadeddata', function () {
+                    video.classList.add('is-loaded');
+                });
+            }
+        }
+    });
+
     var IMAGE_FALLBACK = 'assets/images/hero/banner1.jpg';
 
     /* ----- Broken image fallback ----- */
@@ -57,7 +72,7 @@
     var megaDropdown = document.querySelector('.mega-dropdown');
     var megaMenu = megaDropdown ? megaDropdown.querySelector('.mega-menu') : null;
     var megaToggleBtn = megaDropdown ? megaDropdown.querySelector('.mega-mobile-toggle') : null;
-    var navbarContainer = document.querySelector('.custom-navbar > .container');
+    var navbarContainer = document.querySelector('.custom-navbar > .container, .custom-navbar > .container-fluid');
     var customNavbar = document.querySelector('.custom-navbar');
     var desktopMq = window.matchMedia('(min-width: 992px)');
 
@@ -233,6 +248,39 @@
             if (typeof AOS !== 'undefined') AOS.refresh();
         }, 200);
     });
+
+    /* ----- Floating actions ----- */
+    var whatsappNumber = '91XXXXXXXXXX';
+    var floatingActions = document.createElement('div');
+    floatingActions.className = 'floating-actions';
+    floatingActions.innerHTML =
+        '<button type="button" class="floating-action scroll-top-btn" aria-label="Scroll to top">' +
+        '<i class="bi bi-arrow-up" aria-hidden="true"></i>' +
+        '</button>' +
+        '<a class="floating-action whatsapp-float-btn" href="https://wa.me/' +
+        whatsappNumber +
+        '?text=' +
+        encodeURIComponent('Hello NECI, I would like to discuss an interior, exterior or flooring project.') +
+        '" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">' +
+        '<i class="bi bi-whatsapp" aria-hidden="true"></i>' +
+        '</a>';
+    document.body.appendChild(floatingActions);
+
+    var scrollTopBtn = floatingActions.querySelector('.scroll-top-btn');
+
+    function updateScrollTopButton() {
+        if (!scrollTopBtn) return;
+        scrollTopBtn.classList.toggle('is-visible', window.scrollY > 250);
+    }
+
+    if (scrollTopBtn) {
+        scrollTopBtn.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    updateScrollTopButton();
+    window.addEventListener('scroll', updateScrollTopButton, { passive: true });
 
     /* ----- Hero Parallax Effect ----- */
     window.addEventListener('scroll', function() {

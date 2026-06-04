@@ -20,11 +20,11 @@
     if (serviceEl) {
         // Filter for specific important services requested
         var importantIds = [
-            "false-ceiling",
-            "wall-partitions",
-            "metal-ceiling",
-            "air-louver",
-            "false-flooring-service"
+            "false-flooring-service-cat",
+            "false-ceiling-cat",
+            "wall-partitions-cat",
+            "metal-ceiling-main",
+            "air-louver-cat"
         ];
 
         var linksHtml = serviceCatalog
