@@ -100,6 +100,8 @@
         document.body.classList.remove("gallery-lightbox-open");
     }
 
+    // Disabled lightbox intercept to let cards navigate to dedicated product pages directly
+    /*
     grid.querySelectorAll(".gallery-card").forEach(function (card) {
         card.addEventListener("click", function (event) {
             var img = card.querySelector("img");
@@ -114,6 +116,7 @@
             document.body.classList.add("gallery-lightbox-open");
         });
     });
+    */
 
     lightbox.addEventListener("click", function (event) {
         if (event.target === lightbox) {

@@ -222,7 +222,7 @@ html.js .reveal.is-visible,
 }
 
 .custom-navbar.navbar-scrolled{
-    height: 64px;
+    height: var(--neci-navbar-height);
     background: rgba(255,255,255,0.98);
     backdrop-filter:blur(10px);
     -webkit-backdrop-filter:blur(10px);
@@ -230,7 +230,7 @@ html.js .reveal.is-visible,
 }
 
 .custom-navbar.navbar-scrolled .navbar-brand img{
-    height:46px;
+    /* Keep logo size consistent */
 }
 
 .custom-navbar .navbar-toggler{
@@ -303,12 +303,15 @@ html.js .reveal.is-visible,
     background: rgba(27, 31, 107, 0.04);
 }
 
+.nav-link:hover::before {
+    transform: scaleX(1);
+}
+
 .nav-link.active{
     color: var(--neci-primary) !important;
     background: rgba(244, 180, 0, 0.12);
 }
 
-.nav-link:hover::before,
 .nav-link.active::before{
     transform: scaleX(1);
 }
@@ -387,7 +390,7 @@ html.js .reveal.is-visible,
     visibility: hidden; /* Hides from screen readers */
     transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1), transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.28s ease;
     will-change: transform, opacity;
-    z-index: 1100;
+    z-index: 1200;
 }
 
 .mega-menu::before {
@@ -2828,4 +2831,126 @@ html.js .reveal.is-visible,
     .stat-label {
         font-size: 0.8rem;
     }
+}
+
+/* Client Logo Slider Marquee */
+.client-slider-container {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.client-slider-container::before,
+.client-slider-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.client-slider-container::before {
+    left: 0;
+    background: linear-gradient(to right, #ffffff, transparent);
+}
+
+.client-slider-container::after {
+    right: 0;
+    background: linear-gradient(to left, #ffffff, transparent);
+}
+
+.client-slider-track {
+    display: flex;
+    width: max-content;
+    animation: clientMarquee 35s linear infinite;
+}
+
+.client-logo-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px;
+    height: 60px;
+}
+
+.client-logo-slide img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+
+@keyframes clientMarquee {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+/* Industries We Serve Section */
+.industry-card {
+    background: #ffffff;
+    border: 1px solid rgba(27, 31, 107, 0.06);
+    border-radius: var(--neci-radius-lg);
+    box-shadow: 0 10px 30px rgba(27, 31, 107, 0.04);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.industry-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--neci-accent);
+    transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.industry-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(244, 180, 0, 0.35);
+    box-shadow: 0 20px 40px rgba(27, 31, 107, 0.1);
+}
+
+.industry-card:hover::after {
+    width: 100%;
+}
+
+.industry-icon {
+    font-size: 2.25rem;
+    color: var(--neci-accent);
+    background: rgba(244, 180, 0, 0.08);
+    width: 65px;
+    height: 65px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.industry-card:hover .industry-icon {
+    transform: scale(1.1) rotate(5deg);
+    background-color: var(--neci-primary);
+    color: var(--neci-accent);
+}
+
+.industry-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--neci-primary);
+    margin-bottom: 0;
+    transition: color 0.3s ease;
+}
+
+.industry-card:hover h3 {
+    color: var(--neci-primary-dark);
 }

@@ -21,7 +21,8 @@
         }
     });
 
-    var IMAGE_FALLBACK = 'assets/images/hero/banner1.jpg';
+    var isSubdir = window.location.pathname.indexOf('/products/') !== -1 || window.location.pathname.indexOf('\\products\\') !== -1;
+    var IMAGE_FALLBACK = (isSubdir ? '../' : '') + 'assets/images/hero/banner1.jpg';
 
     /* ----- Broken image fallback ----- */
     function bindImageFallbacks() {
@@ -145,13 +146,14 @@
     if (navCollapse && typeof bootstrap !== 'undefined') {
         var collapseInstance = bootstrap.Collapse.getOrCreateInstance(navCollapse, { toggle: false });
 
-        document.querySelectorAll('.navbar-nav .nav-link, .mega-menu a').forEach(function (link) {
-            link.addEventListener('click', function () {
+        navCollapse.addEventListener('click', function (e) {
+            var targetLink = e.target.closest('.nav-link, .mega-menu a');
+            if (targetLink) {
                 if (window.innerWidth < 992 && navCollapse.classList.contains('show')) {
                     collapseInstance.hide();
                 }
                 closeMegaMenu();
-            });
+            }
         });
     }
 
@@ -173,7 +175,8 @@
         '.premium-about-content',
         '.info-text-content',
         '.info-video-wrapper',
-        '.info-feature-item'
+        '.info-feature-item',
+        '.client-box'
     ].join(', ');
 
     function shouldSkipReveal(el) {
@@ -281,6 +284,75 @@
 
     updateScrollTopButton();
     window.addEventListener('scroll', updateScrollTopButton, { passive: true });
+
+    /* ----- Contact Form WhatsApp Redirection ----- */
+    var contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            
+            var name = document.getElementById('contactName') ? document.getElementById('contactName').value : '';
+            var email = document.getElementById('contactEmail') ? document.getElementById('contactEmail').value : '';
+            var service = document.getElementById('contactService') ? document.getElementById('contactService').value : '';
+            var subject = document.getElementById('contactSubject') ? document.getElementById('contactSubject').value : '';
+            var message = document.getElementById('contactMessage') ? document.getElementById('contactMessage').value : '';
+
+            var whatsappMsg = "Hello NECI, I have a project inquiry:\n\n" +
+                "*Name:* " + name + "\n" +
+                "*Email:* " + email + "\n" +
+                "*Service:* " + service + "\n" +
+                "*Subject:* " + subject + "\n" +
+                "*Message:* " + message;
+
+            var url = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(whatsappMsg);
+            window.open(url, '_blank');
+
+            // Clear the form data after submission
+            contactForm.reset();
+        });
+    }
+
+    /* ----- Statistics Counter Animation ----- */
+    function initStatsCounter() {
+        var statsSection = document.querySelector('.precision-stats-container');
+        var counters = document.querySelectorAll('.stat-number');
+        var duration = 2000; // 2 seconds
+
+        if (!statsSection || counters.length === 0) return;
+
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    counters.forEach(function (counter) {
+                        var target = parseInt(counter.getAttribute('data-target'), 10);
+                        var suffix = counter.getAttribute('data-suffix') || '';
+                        var startTime = null;
+
+                        function step(timestamp) {
+                            if (!startTime) startTime = timestamp;
+                            var progress = Math.min((timestamp - startTime) / duration, 1);
+                            var currentCount = Math.floor(progress * target);
+                            
+                            counter.textContent = currentCount + suffix;
+
+                            if (progress < 1) {
+                                window.requestAnimationFrame(step);
+                            } else {
+                                counter.textContent = target + suffix;
+                            }
+                        }
+
+                        window.requestAnimationFrame(step);
+                    });
+                    observer.unobserve(statsSection);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        observer.observe(statsSection);
+    }
+
+    initStatsCounter();
 
     /* ----- Hero Parallax Effect ----- */
     window.addEventListener('scroll', function() {

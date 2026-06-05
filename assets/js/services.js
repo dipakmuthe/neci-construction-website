@@ -10,6 +10,52 @@
         whatsapp: "91XXXXXXXXXX"
     };
 
+    var productFileMap = {
+        "false-flooring": "false-flooring.html",
+        "access-flooring-svc": "access-flooring.html",
+        "aluminum-false-ceiling": "aluminum-false-ceiling.html",
+        "metal-false-ceiling-svc": "metal-false-ceiling.html",
+        "gypsum-board-false-ceiling": "gypsum-board-false-ceiling.html",
+        "gypsum-false-ceiling": "gypsum-false-ceiling.html",
+        "armstrong-false-ceiling": "armstrong-false-ceiling.html",
+        "mineral-fiber-ceiling-svc": "mineral-fiber-ceiling.html",
+        "baffle-ceiling": "baffle-ceiling.html",
+        "mesh-ceiling": "mesh-ceiling.html",
+        "designer-false-ceiling": "designer-false-ceiling.html",
+        "calcium-silicate-ceiling": "calcium-silicate-ceiling.html",
+        "grid-ceiling": "grid-ceiling.html",
+        "pvc-false-ceiling": "pvc-false-ceiling.html",
+        "office-false-ceiling": "office-false-ceiling.html",
+        "glass-wall-partitions": "glass-wall-partitions.html",
+        "gypsum-wall-partitions": "gypsum-wall-partitions.html",
+        "fire-rated-partition-svc": "fire-rated-partition.html",
+        "acoustic-partition-svc": "acoustic-partition.html",
+        "office-partition": "office-partition.html",
+        "modular-partition": "modular-partition.html",
+        "hunter-douglas-louvers": "hunter-douglas-metal-louvers.html",
+        "metal-sun-louvers-std": "metal-sun-louvers.html",
+        "kitchen-louver-window": "kitchen-louver-window.html",
+        "mineral-fiber-metal": "metal-ceiling.html",
+        "roofing-solutions": "roofing-solutions.html",
+        "ceiling-tiles-svc": "ceiling-tiles.html",
+        "fresh-air-louvers": "fresh-air-louvers.html",
+        "aluminum-air-louvers": "aluminum-air-louvers.html",
+        "gi-air-louvers-svc": "gi-air-louvers.html",
+        "insulation-service": "insulation-service.html",
+        "acoustic-partition-main": "acoustic-partition-main.html",
+        "perforated-panels-svc": "perforated-panels.html",
+        "epoxy-painting-svc": "epoxy-floor-painting.html",
+        "gypsum-partition-main": "gypsum-partition.html",
+        "interior-renovation-svc": "interior-renovation.html",
+        "flat-interior-renovation-svc": "flat-interior-renovation.html",
+        "residential-construction-svc": "residential-construction.html",
+        "steel-buildings": "steel-buildings.html",
+        "erection-services": "erection-services.html",
+        "welding-fabrication-svc": "welding-fabrication.html",
+        "roof-fabrication-svc": "roof-fabrication.html"
+    };
+
+
     var INITIAL_VISIBLE = 6;
     var LOAD_MORE_STEP = 6;
     var SIDEBAR_VISIBLE_SUBS = 8;
@@ -98,11 +144,24 @@
 
     function getAllProductsFlat() {
         var items = [];
+        var maxProducts = 0;
+
+        // Find the maximum number of products in any single category to set the interleaving limit
         serviceCatalog.forEach(function (category) {
-            category.products.forEach(function (product) {
-                items.push({ category: category, product: product });
-            });
+            if (category.products.length > maxProducts) {
+                maxProducts = category.products.length;
+            }
         });
+
+        // Interleave products from all categories to create a mixed view
+        for (var i = 0; i < maxProducts; i++) {
+            serviceCatalog.forEach(function (category) {
+                if (category.products[i]) {
+                    items.push({ category: category, product: category.products[i] });
+                }
+            });
+        }
+
         return items;
     }
 
@@ -477,7 +536,8 @@
                 });
                 var product = category && findProductInCategory(category, productId);
                 if (product) {
-                    openProductDetail(product, category);
+                    var filename = productFileMap[product.id] || (product.id + ".html");
+                    window.location.href = "products/" + filename;
                 }
             }
 
@@ -695,9 +755,8 @@
 
                 var product = findProductInCategory(category, productId);
                 if (product) {
-                    activeCategory = category;
-                    listScope = "category";
-                    openProductDetail(product, category);
+                    var filename = productFileMap[product.id] || (product.id + ".html");
+                    window.location.href = "products/" + filename;
                 }
             });
         });
@@ -873,10 +932,8 @@
 
         var match = findProductById(id);
         if (match) {
-            expandedCategoryId = match.category.id;
-            activeCategory = match.category;
-            listScope = "category";
-            openProductDetail(match.product, match.category);
+            var filename = productFileMap[match.product.id] || (match.product.id + ".html");
+            window.location.href = "products/" + filename;
         }
     });
 
@@ -913,9 +970,23 @@
     initPageReveal();
     resolveInitialState();
 
+    // Handle product redirection from other pages via query param
+    var urlParams = new URLSearchParams(window.location.search);
+    var productSlug = urlParams.get('product');
+
+    if (productSlug) {
+        var match = findProductById(productSlug);
+        if (match) {
+            var filename = productFileMap[match.product.id] || (match.product.id + ".html");
+            window.location.href = "products/" + filename;
+            return;
+        }
+    }
+
     if (hashId && findProductById(hashId)) {
         var detailMatch = findProductById(hashId);
-        openProductDetail(detailMatch.product, detailMatch.category);
+        var filename = productFileMap[detailMatch.product.id] || (detailMatch.product.id + ".html");
+        window.location.href = "products/" + filename;
     } else if (hashId && findCategoryByHash(hashId)) {
         selectCategory(findCategoryByHash(hashId), null, true);
     } else {
